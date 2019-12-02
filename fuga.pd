@@ -1,0 +1,32 @@
+#N canvas 1470 214 345 446 10;
+#X obj 120 366 dac~ 1 2;
+#X obj 120 147 select 0 1 2 3;
+#X obj 120 332 *~ 0.5;
+#X obj 121 185 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 146 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 173 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 200 185 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 121 215 tabplay~ sample1;
+#X obj 143 242 tabplay~ sample1;
+#X obj 164 269 tabplay~ sample1;
+#X obj 185 296 tabplay~ sample1;
+#X obj 104 64 inlet;
+#X floatatom 166 115 5 0 0 0 - - -;
+#X connect 1 0 3 0;
+#X connect 1 1 4 0;
+#X connect 1 2 5 0;
+#X connect 1 3 6 0;
+#X connect 2 0 0 0;
+#X connect 3 0 7 0;
+#X connect 4 0 8 0;
+#X connect 5 0 9 0;
+#X connect 6 0 10 0;
+#X connect 7 0 2 0;
+#X connect 8 0 2 0;
+#X connect 9 0 2 0;
+#X connect 10 0 2 0;
+#X connect 11 0 1 0;

@@ -1,4 +1,4 @@
-#N canvas 0 22 1920 1155 12;
+#N canvas 65 40 1920 1155 12;
 #X obj 60 309 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 188 309 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -60,7 +60,7 @@
 #X obj 246 761 *~ 0.5;
 #X obj 978 755 *~ 0.5;
 #X obj 897 291 select 7 8;
-#N canvas 0 22 1920 1155 loadfile 0;
+#N canvas 1 23 1920 1155 loadfile 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array sample1 86272 float 2;
 #X coords 0 1 86272 -1 200 140 1 0 0;
@@ -164,6 +164,12 @@
 #X msg 577 940 read -resize 16.wav sample16;
 #X msg 807 940 read -resize 17.wav sample17;
 #X obj 22 24 loadbang;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array sampleL 117642 float 2;
+#X coords 0 1 117642 -1 200 140 1 0 0;
+#X restore 1027 1007 graph;
+#X obj 1027 974 soundfiler;
+#X msg 1027 940 read -resize long.wav sampleL;
 #X connect 4 0 3 0;
 #X connect 11 0 6 0;
 #X connect 12 0 8 0;
@@ -198,6 +204,8 @@
 #X connect 51 0 42 0;
 #X connect 51 0 43 0;
 #X connect 51 0 44 0;
+#X connect 51 0 54 0;
+#X connect 54 0 53 0;
 #X restore 16 81 pd loadfile;
 #N canvas 225 107 450 300 receiveosc 0;
 #X obj 23 73 dumpOSC 9999;
@@ -229,6 +237,28 @@
 #X obj 894 721 tabplay~ sample15;
 #X obj 1024 722 tabplay~ sample16;
 #X obj 1166 723 tabplay~ sample17;
+#X floatatom 1594 459 10 0 0 0 - - -;
+#X text 1672 458 number of bangs;
+#X obj 1594 433 counter;
+#X obj 1595 353 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1764 532 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1827 389 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144
+-1 -1;
+#X obj 1593 775 dac~ 1 2;
+#X obj 1368 249 hoge 2;
+#X obj 1594 624 tabplay~ sampleL;
+#X obj 1616 651 tabplay~ sampleL;
+#X obj 1642 677 tabplay~ sampleL;
+#X obj 1667 704 tabplay~ sampleL;
+#X obj 1594 501 select 0 1 2 3;
+#X obj 1593 741 *~ 0.5;
+#X obj 1345 397 mycounter;
+#X obj 1346 363 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 1389 437 5 0 0 0 - - -;
+#X obj 1346 467 fuga;
 #X connect 0 0 2 0;
 #X connect 1 0 3 0;
 #X connect 2 0 15 0;
@@ -296,3 +326,21 @@
 #X connect 57 0 31 0;
 #X connect 58 0 42 0;
 #X connect 59 0 31 1;
+#X connect 60 0 72 0;
+#X connect 62 0 60 0;
+#X connect 63 0 62 0;
+#X connect 64 0 65 0;
+#X connect 65 0 62 3;
+#X connect 68 0 73 0;
+#X connect 69 0 73 0;
+#X connect 70 0 73 0;
+#X connect 71 0 73 0;
+#X connect 72 0 68 0;
+#X connect 72 1 69 0;
+#X connect 72 2 70 0;
+#X connect 72 3 71 0;
+#X connect 72 4 64 0;
+#X connect 73 0 66 0;
+#X connect 74 0 76 0;
+#X connect 74 0 77 0;
+#X connect 75 0 74 0;
